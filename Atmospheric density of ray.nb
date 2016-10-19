@@ -1,0 +1,749 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     24861,        740]
+NotebookOptionsPosition[     23994,        706]
+NotebookOutlinePosition[     24380,        723]
+CellTagsIndexPosition[     24337,        720]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Code", " ", "by", " ", "Jos\[EAcute]", " ", "Miguel", " ", "Santana", 
+     " ", 
+     RowBox[{"N\[UAcute]\[NTilde]ez", ":", " ", 
+      RowBox[{
+       RowBox[{"amazingsmash", "@", "gmail"}], ".", "com"}]}]}], ",", " ", 
+    RowBox[{"josemiguel", ".", 
+     RowBox[{"santana", "@", "ulpgc"}], ".", "es"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Defining", " ", "some", " ", "stuff", " ", "about", " ", "the", " ", 
+    "atmospheric", " ", "density"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Height", " ", "of", " ", "point"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"h", "[", "p_", "]"}], " ", ":=", " ", 
+     RowBox[{
+      RowBox[{"Norm", "[", "p", "]"}], " ", "-", " ", "earthRadius"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Density", " ", "of", " ", 
+     RowBox[{"point", ".", " ", "Very"}], " ", "simple", " ", 
+     "approximation"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"d", "[", "p_", "]"}], " ", ":=", " ", 
+     RowBox[{"1.0", " ", "-", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"h", "[", "p", "]"}], " ", "/", " ", 
+        RowBox[{"(", 
+         RowBox[{"stratoHeight", " ", "-", " ", "earthRadius"}], ")"}]}], 
+       ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Density", " ", "along", " ", "ray"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"d", "[", 
+     RowBox[{"t_", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"dx_", ",", " ", "dy_", ",", " ", "dz_"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"ox_", ",", " ", "oy_", ",", " ", "oz_"}], "}"}]}], "]"}], " ",
+     ":=", 
+    RowBox[{"d", "[", 
+     RowBox[{
+      RowBox[{"t", "*", 
+       RowBox[{"{", 
+        RowBox[{"dx", ",", "dy", ",", "dz"}], "}"}]}], "+", " ", 
+      RowBox[{"{", 
+       RowBox[{"ox", ",", "oy", ",", "oz"}], "}"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"dt", "[", "t_", "]"}], " ", ":=", " ", 
+    RowBox[{"FullSimplify", "[", 
+     RowBox[{
+      RowBox[{"d", "[", 
+       RowBox[{"t", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"dx", ",", " ", "dy", ",", " ", "dz"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"ox", ",", " ", "oy", ",", " ", "oz"}], "}"}]}], "]"}], ",", 
+      
+      RowBox[{"Assumptions", "\[Rule]", 
+       RowBox[{"Element", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "t", ",", "dx", ",", "dy", ",", "dz", ",", "ox", ",", "oy", ",", 
+           "oz"}], "}"}], ",", "Reals"}], "]"}]}]}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", "Integral", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"idt", " ", ":=", " ", 
+    RowBox[{"\[Integral]", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"dt", "[", "t", "]"}], ")"}], 
+      RowBox[{"\[DifferentialD]", "t"}]}]}]}]}]}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwdzlsoQwEAxvG11pTLxpw8yOUYsrxshMwQoSyXcVoZDxKJoszcHtRq5VJK
+uZTct5YRTx7k9iAlS/bilo1EyGUbdZblkqM533n4+r39+xIaO6hmPo/Hi2cH
+iTjq6LvHW7jDCC7gw0TJExzbv3qG7UUWD/Tkb3rhhkxEQ+ma5g9SU9P8H9YZ
+kVgAs027BBQGaaPgPJMTA51D0yTcu1Emw9fJVRmM1Frk8Fpmy4DH74MqSFiZ
+PNhPKjrh/al7EErUds8va3jwhxfq6g5pGHER5oP2JUIQ0sv2WmlOfbrUCF1X
+fZx+YcgoNLRVcbYU28eh0N8wAc9GxLeQTMx6hOs1ZiIUPdNsLCzOTVPCSluK
+CqpiNCa4UrY9DAPSLRcsUjs4f8uZGRGrW3u+AL8sB3Ixq1nlVECd8TgDnlRL
+MuHAokMfjV9rAc7UrrukLNZw65sc+pwbBXDZQJdC+j1PA3kvTRTsXq+oh+qn
+Ws7PuUs9fCUreuA/LCv+ag==
+  "]],
+
+Cell[BoxData[
+ GraphicsBox[{
+   CircleBox[{0.5966666666666669, 0.5700000000000001}, \
+{0.3744351377251889, 0.3744351377251891}], 
+   CircleBox[{0.6011111111111112, 0.578888888888889}, 0.2496172870704283], 
+   LineBox[{{0.9744444444444447, 0.5455555555555556}, {0.6122656250000001, 
+    0.9429079861111112}}], InsetBox[Cell[TextData[StyleBox["O",
+     FontWeight->"Bold"]],
+     GeneratedCell->False,
+     CellAutoOverwrite->False,
+     CellBaseline->Baseline,
+     TextAlignment->Left], {0.9922222222222223, 0.5503385416666666}, {
+    Left, Baseline},
+    Alignment->{Left, Top}], InsetBox[Cell["O+D", "Input",
+     GeneratedCell->False,
+     CellAutoOverwrite->False,
+     CellBaseline->Baseline,
+     TextAlignment->Left], {0.5992100694444447, 0.9625781250000002}, {
+    Left, Baseline},
+    Alignment->{Left, Top}], InsetBox[
+    StyleBox[Cell["Earth",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     Background->GrayLevel[1.]], {0.5709115180039765, 0.5780642542094139}, {
+    Left, Baseline},
+    Alignment->{Left, Top}], InsetBox[
+    StyleBox[Cell["Stratosphere",
+      GeneratedCell->False,
+      CellAutoOverwrite->False,
+      CellBaseline->Baseline,
+      TextAlignment->Left],
+     Background->GrayLevel[1.]], {0.8720902228736174, 0.2517013121950875}, {
+    Left, Baseline},
+    Alignment->{Left, Top}]},
+  ContentSelectable->True,
+  ImageMargins->{{1.5687500000002572`, 0.7062499999997272}, {0., 0.}},
+  ImagePadding->{{0., 0.}, {0., 0.}},
+  ImageSize->{302.76874999999984`, 228.25312499999976`},
+  PlotRange->{{0., 1.3333333333333335`}, {0., 1.}},
+  PlotRangePadding->Automatic]], "Input",
+ CellChangeTimes->{{3.685855916775654*^9, 3.685855943554323*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"dt", "[", "t", "]"}], "\[IndentingNewLine]", "idt"}], "Input",
+ CellChangeTimes->{{3.6857701083084993`*^9, 3.685770125276307*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "1.`"}], " ", "stratoHeight"}], "+", 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"ox", "+", 
+        RowBox[{"dx", " ", "t"}]}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"oy", "+", 
+        RowBox[{"dy", " ", "t"}]}], ")"}], "2"], "+", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"oz", "+", 
+        RowBox[{"dz", " ", "t"}]}], ")"}], "2"]}]]}], 
+  RowBox[{"earthRadius", "-", 
+   RowBox[{"1.`", " ", "stratoHeight"}]}]]], "Output",
+ CellChangeTimes->{{3.685770109578833*^9, 3.685770125967189*^9}, 
+   3.685774583690095*^9, 3.685775804837494*^9, 3.685798778935761*^9, 
+   3.6857988111097183`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", 
+   RowBox[{"earthRadius", "-", 
+    RowBox[{"1.`", " ", "stratoHeight"}]}]], 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "1.`"}], " ", "stratoHeight", " ", "t"}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox[
+        RowBox[{
+         RowBox[{"dx", " ", "ox"}], "+", 
+         RowBox[{"dy", " ", "oy"}], "+", 
+         RowBox[{"dz", " ", "oz"}]}], 
+        RowBox[{"2", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["dx", "2"], "+", 
+           SuperscriptBox["dy", "2"], "+", 
+           SuperscriptBox["dz", "2"]}], ")"}]}]], "+", 
+       FractionBox["t", "2"]}], ")"}], " ", 
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox["ox", "2"], "+", 
+       SuperscriptBox["oy", "2"], "+", 
+       SuperscriptBox["oz", "2"], "+", 
+       RowBox[{"2", " ", "dx", " ", "ox", " ", "t"}], "+", 
+       RowBox[{"2", " ", "dy", " ", "oy", " ", "t"}], "+", 
+       RowBox[{"2", " ", "dz", " ", "oz", " ", "t"}], "+", 
+       RowBox[{
+        SuperscriptBox["dx", "2"], " ", 
+        SuperscriptBox["t", "2"]}], "+", 
+       RowBox[{
+        SuperscriptBox["dy", "2"], " ", 
+        SuperscriptBox["t", "2"]}], "+", 
+       RowBox[{
+        SuperscriptBox["dz", "2"], " ", 
+        SuperscriptBox["t", "2"]}]}]]}], "+", 
+    RowBox[{
+     RowBox[{"1", "/", 
+      RowBox[{"(", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["dx", "2"], "+", 
+           SuperscriptBox["dy", "2"], "+", 
+           SuperscriptBox["dz", "2"]}], ")"}], 
+         RowBox[{"3", "/", "2"}]]}], ")"}]}], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["dy", "2"], " ", 
+         SuperscriptBox["ox", "2"]}], "+", 
+        RowBox[{
+         SuperscriptBox["dz", "2"], " ", 
+         SuperscriptBox["ox", "2"]}], "-", 
+        RowBox[{"2", " ", "dx", " ", "dy", " ", "ox", " ", "oy"}], "+", 
+        RowBox[{
+         SuperscriptBox["dx", "2"], " ", 
+         SuperscriptBox["oy", "2"]}], "+", 
+        RowBox[{
+         SuperscriptBox["dz", "2"], " ", 
+         SuperscriptBox["oy", "2"]}], "-", 
+        RowBox[{"2", " ", "dx", " ", "dz", " ", "ox", " ", "oz"}], "-", 
+        RowBox[{"2", " ", "dy", " ", "dz", " ", "oy", " ", "oz"}], "+", 
+        RowBox[{
+         SuperscriptBox["dx", "2"], " ", 
+         SuperscriptBox["oz", "2"]}], "+", 
+        RowBox[{
+         SuperscriptBox["dy", "2"], " ", 
+         SuperscriptBox["oz", "2"]}]}], ")"}], " ", 
+      RowBox[{"Log", "[", 
+       RowBox[{
+        RowBox[{"dx", " ", "ox"}], "+", 
+        RowBox[{"dy", " ", "oy"}], "+", 
+        RowBox[{"dz", " ", "oz"}], "+", 
+        RowBox[{
+         SuperscriptBox["dx", "2"], " ", "t"}], "+", 
+        RowBox[{
+         SuperscriptBox["dy", "2"], " ", "t"}], "+", 
+        RowBox[{
+         SuperscriptBox["dz", "2"], " ", "t"}], "+", 
+        RowBox[{
+         SqrtBox[
+          RowBox[{
+           SuperscriptBox["dx", "2"], "+", 
+           SuperscriptBox["dy", "2"], "+", 
+           SuperscriptBox["dz", "2"]}]], " ", 
+         SqrtBox[
+          RowBox[{
+           SuperscriptBox["ox", "2"], "+", 
+           SuperscriptBox["oy", "2"], "+", 
+           SuperscriptBox["oz", "2"], "+", 
+           RowBox[{"2", " ", "dx", " ", "ox", " ", "t"}], "+", 
+           RowBox[{"2", " ", "dy", " ", "oy", " ", "t"}], "+", 
+           RowBox[{"2", " ", "dz", " ", "oz", " ", "t"}], "+", 
+           RowBox[{
+            SuperscriptBox["dx", "2"], " ", 
+            SuperscriptBox["t", "2"]}], "+", 
+           RowBox[{
+            SuperscriptBox["dy", "2"], " ", 
+            SuperscriptBox["t", "2"]}], "+", 
+           RowBox[{
+            SuperscriptBox["dz", "2"], " ", 
+            SuperscriptBox["t", "2"]}]}]]}]}], "]"}]}]}]}], ")"}]}]], "Output",\
+
+ CellChangeTimes->{{3.685770109578833*^9, 3.685770125967189*^9}, 
+   3.685774583690095*^9, 3.685775804837494*^9, 3.685798778935761*^9, 
+   3.685798811496744*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+   "Integral", " ", "of", " ", "the", " ", "density", " ", "along", " ", 
+    "the", " ", "ray", " ", "t"}], "=", 
+   RowBox[{
+    RowBox[{"0", " ", "to", " ", "t"}], "=", "1"}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.685855618954423*^9, 3.6858556362602053`*^9}, {
+  3.685855677658613*^9, 3.685855701088213*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"s", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"idt", " ", "/.", " ", 
+      RowBox[{"t", "\[Rule]", "1"}]}], ")"}], " ", "-", " ", 
+    RowBox[{"(", 
+     RowBox[{"idt", " ", "/.", " ", 
+      RowBox[{"t", " ", "\[Rule]", "0"}]}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"fss", " ", "=", " ", 
+  RowBox[{"FullSimplify", "[", "s", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.6857697462278957`*^9, 3.685769820589357*^9}, {
+   3.685769858312196*^9, 3.6857698596781693`*^9}, 3.685770045927199*^9, {
+   3.685770088158214*^9, 3.68577009129967*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", 
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{"earthRadius", "-", 
+      RowBox[{"1.`", " ", "stratoHeight"}]}], ")"}]}]], 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"dx", " ", "ox"}], "+", 
+         RowBox[{"dy", " ", "oy"}], "+", 
+         RowBox[{"dz", " ", "oz"}]}], ")"}], " ", 
+       SqrtBox[
+        RowBox[{
+         SuperscriptBox["ox", "2"], "+", 
+         SuperscriptBox["oy", "2"], "+", 
+         SuperscriptBox["oz", "2"]}]]}], 
+      RowBox[{
+       SuperscriptBox["dx", "2"], "+", 
+       SuperscriptBox["dy", "2"], "+", 
+       SuperscriptBox["dz", "2"]}]]}], "+", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"dx", " ", 
+         RowBox[{"(", 
+          RowBox[{"dx", "+", "ox"}], ")"}]}], "+", 
+        RowBox[{"dy", " ", 
+         RowBox[{"(", 
+          RowBox[{"dy", "+", "oy"}], ")"}]}], "+", 
+        RowBox[{"dz", " ", 
+         RowBox[{"(", 
+          RowBox[{"dz", "+", "oz"}], ")"}]}]}], ")"}], " ", 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"dx", "+", "ox"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"dy", "+", "oy"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"dz", "+", "oz"}], ")"}], "2"]}]]}], 
+     RowBox[{
+      SuperscriptBox["dx", "2"], "+", 
+      SuperscriptBox["dy", "2"], "+", 
+      SuperscriptBox["dz", "2"]}]], "-", 
+    RowBox[{"2.`", " ", "stratoHeight"}], "-", 
+    RowBox[{
+     RowBox[{"1", "/", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["dx", "2"], "+", 
+         SuperscriptBox["dy", "2"], "+", 
+         SuperscriptBox["dz", "2"]}], ")"}], 
+       RowBox[{"3", "/", "2"}]]}], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["dz", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["ox", "2"], "+", 
+           SuperscriptBox["oy", "2"]}], ")"}]}], "-", 
+        RowBox[{"2", " ", "dx", " ", "dz", " ", "ox", " ", "oz"}], "-", 
+        RowBox[{"2", " ", "dy", " ", "oy", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"dx", " ", "ox"}], "+", 
+           RowBox[{"dz", " ", "oz"}]}], ")"}]}], "+", 
+        RowBox[{
+         SuperscriptBox["dy", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["ox", "2"], "+", 
+           SuperscriptBox["oz", "2"]}], ")"}]}], "+", 
+        RowBox[{
+         SuperscriptBox["dx", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["oy", "2"], "+", 
+           SuperscriptBox["oz", "2"]}], ")"}]}]}], ")"}], " ", 
+      RowBox[{"Log", "[", 
+       RowBox[{
+        RowBox[{"dx", " ", "ox"}], "+", 
+        RowBox[{"dy", " ", "oy"}], "+", 
+        RowBox[{"dz", " ", "oz"}], "+", 
+        RowBox[{
+         SqrtBox[
+          RowBox[{
+           SuperscriptBox["dx", "2"], "+", 
+           SuperscriptBox["dy", "2"], "+", 
+           SuperscriptBox["dz", "2"]}]], " ", 
+         SqrtBox[
+          RowBox[{
+           SuperscriptBox["ox", "2"], "+", 
+           SuperscriptBox["oy", "2"], "+", 
+           SuperscriptBox["oz", "2"]}]]}]}], "]"}]}]}], "+", 
+    RowBox[{
+     RowBox[{"1", "/", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["dx", "2"], "+", 
+         SuperscriptBox["dy", "2"], "+", 
+         SuperscriptBox["dz", "2"]}], ")"}], 
+       RowBox[{"3", "/", "2"}]]}], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["dz", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["ox", "2"], "+", 
+           SuperscriptBox["oy", "2"]}], ")"}]}], "-", 
+        RowBox[{"2", " ", "dx", " ", "dz", " ", "ox", " ", "oz"}], "-", 
+        RowBox[{"2", " ", "dy", " ", "oy", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"dx", " ", "ox"}], "+", 
+           RowBox[{"dz", " ", "oz"}]}], ")"}]}], "+", 
+        RowBox[{
+         SuperscriptBox["dy", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["ox", "2"], "+", 
+           SuperscriptBox["oz", "2"]}], ")"}]}], "+", 
+        RowBox[{
+         SuperscriptBox["dx", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["oy", "2"], "+", 
+           SuperscriptBox["oz", "2"]}], ")"}]}]}], ")"}], " ", 
+      RowBox[{"Log", "[", 
+       RowBox[{
+        RowBox[{"dx", " ", 
+         RowBox[{"(", 
+          RowBox[{"dx", "+", "ox"}], ")"}]}], "+", 
+        RowBox[{"dy", " ", 
+         RowBox[{"(", 
+          RowBox[{"dy", "+", "oy"}], ")"}]}], "+", 
+        RowBox[{"dz", " ", 
+         RowBox[{"(", 
+          RowBox[{"dz", "+", "oz"}], ")"}]}], "+", 
+        RowBox[{
+         SqrtBox[
+          RowBox[{
+           SuperscriptBox["dx", "2"], "+", 
+           SuperscriptBox["dy", "2"], "+", 
+           SuperscriptBox["dz", "2"]}]], " ", 
+         SqrtBox[
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"dx", "+", "ox"}], ")"}], "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"dy", "+", "oy"}], ")"}], "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"dz", "+", "oz"}], ")"}], "2"]}]]}]}], "]"}]}]}]}], 
+   ")"}]}]], "Output",
+ CellChangeTimes->{{3.685769764689332*^9, 3.6857698212095737`*^9}, 
+   3.685769860354871*^9, 3.685770046738536*^9, 3.685774705393297*^9, 
+   3.68577580736722*^9, 3.685798854502207*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"fsss", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"fss", " ", "/.", " ", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["dx", "2"], "+", 
+      SuperscriptBox["dy", "2"], "+", 
+      SuperscriptBox["dz", "2"]}], " ", "\[Rule]", " ", "ld"}]}], " ", "/.", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"dx", " ", "ox"}], "+", 
+     RowBox[{"dy", " ", "oy"}], "+", 
+     RowBox[{"dz", " ", "oz"}]}], "\[Rule]", "pdo"}]}]}]], "Input",
+ CellChangeTimes->{{3.685769873595641*^9, 3.6857699066425257`*^9}, {
+  3.685770574034205*^9, 3.6857705827630177`*^9}, {3.685770620099347*^9, 
+  3.685770620658246*^9}, {3.6857758219262123`*^9, 3.685775824636676*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", 
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{"earthRadius", "-", 
+      RowBox[{"1.`", " ", "stratoHeight"}]}], ")"}]}]], 
+  RowBox[{"(", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"dx", " ", 
+         RowBox[{"(", 
+          RowBox[{"dx", "+", "ox"}], ")"}]}], "+", 
+        RowBox[{"dy", " ", 
+         RowBox[{"(", 
+          RowBox[{"dy", "+", "oy"}], ")"}]}], "+", 
+        RowBox[{"dz", " ", 
+         RowBox[{"(", 
+          RowBox[{"dz", "+", "oz"}], ")"}]}]}], ")"}], " ", 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"dx", "+", "ox"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"dy", "+", "oy"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"dz", "+", "oz"}], ")"}], "2"]}]]}], "ld"], "-", 
+    FractionBox[
+     RowBox[{
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox["ox", "2"], "+", 
+        SuperscriptBox["oy", "2"], "+", 
+        SuperscriptBox["oz", "2"]}]], " ", "pdo"}], "ld"], "-", 
+    RowBox[{"2.`", " ", "stratoHeight"}], "+", 
+    RowBox[{
+     RowBox[{"1", "/", 
+      SuperscriptBox["ld", 
+       RowBox[{"3", "/", "2"}]]}], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["dz", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["ox", "2"], "+", 
+           SuperscriptBox["oy", "2"]}], ")"}]}], "-", 
+        RowBox[{"2", " ", "dx", " ", "dz", " ", "ox", " ", "oz"}], "-", 
+        RowBox[{"2", " ", "dy", " ", "oy", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"dx", " ", "ox"}], "+", 
+           RowBox[{"dz", " ", "oz"}]}], ")"}]}], "+", 
+        RowBox[{
+         SuperscriptBox["dy", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["ox", "2"], "+", 
+           SuperscriptBox["oz", "2"]}], ")"}]}], "+", 
+        RowBox[{
+         SuperscriptBox["dx", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["oy", "2"], "+", 
+           SuperscriptBox["oz", "2"]}], ")"}]}]}], ")"}], " ", 
+      RowBox[{"Log", "[", 
+       RowBox[{
+        RowBox[{"dx", " ", 
+         RowBox[{"(", 
+          RowBox[{"dx", "+", "ox"}], ")"}]}], "+", 
+        RowBox[{"dy", " ", 
+         RowBox[{"(", 
+          RowBox[{"dy", "+", "oy"}], ")"}]}], "+", 
+        RowBox[{"dz", " ", 
+         RowBox[{"(", 
+          RowBox[{"dz", "+", "oz"}], ")"}]}], "+", 
+        RowBox[{
+         SqrtBox["ld"], " ", 
+         SqrtBox[
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"dx", "+", "ox"}], ")"}], "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"dy", "+", "oy"}], ")"}], "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"dz", "+", "oz"}], ")"}], "2"]}]]}]}], "]"}]}]}], "-", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["dz", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["ox", "2"], "+", 
+           SuperscriptBox["oy", "2"]}], ")"}]}], "-", 
+        RowBox[{"2", " ", "dx", " ", "dz", " ", "ox", " ", "oz"}], "-", 
+        RowBox[{"2", " ", "dy", " ", "oy", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"dx", " ", "ox"}], "+", 
+           RowBox[{"dz", " ", "oz"}]}], ")"}]}], "+", 
+        RowBox[{
+         SuperscriptBox["dy", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["ox", "2"], "+", 
+           SuperscriptBox["oz", "2"]}], ")"}]}], "+", 
+        RowBox[{
+         SuperscriptBox["dx", "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["oy", "2"], "+", 
+           SuperscriptBox["oz", "2"]}], ")"}]}]}], ")"}], " ", 
+      RowBox[{"Log", "[", 
+       RowBox[{
+        RowBox[{
+         SqrtBox["ld"], " ", 
+         SqrtBox[
+          RowBox[{
+           SuperscriptBox["ox", "2"], "+", 
+           SuperscriptBox["oy", "2"], "+", 
+           SuperscriptBox["oz", "2"]}]]}], "+", "pdo"}], "]"}]}], 
+     SuperscriptBox["ld", 
+      RowBox[{"3", "/", "2"}]]]}], ")"}]}]], "Output",
+ CellChangeTimes->{3.685770659271399*^9, 3.685775825129859*^9, 
+  3.685798873906192*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"code", " ", "=", " ", 
+  RowBox[{"CForm", "[", "fsss", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6857706619645557`*^9, 3.6857706700166903`*^9}, {
+   3.6857707008624897`*^9, 3.685770703976907*^9}, 3.6857758293477793`*^9, {
+   3.685798975793086*^9, 3.6857990086224957`*^9}, 3.685799109879697*^9}],
+
+Cell["\<\
+(((dx*(dx + ox) + dy*(dy + oy) + dz*(dz + oz))*
+        Sqrt(Power(dx + ox,2) + Power(dy + oy,2) + Power(dz + oz,2)))/ld - 
+     (Sqrt(Power(ox,2) + Power(oy,2) + Power(oz,2))*pdo)/ld - 2.*stratoHeight \
++ 
+     ((Power(dz,2)*(Power(ox,2) + Power(oy,2)) - 2*dx*dz*ox*oz - \
+2*dy*oy*(dx*ox + dz*oz) + 
+          Power(dy,2)*(Power(ox,2) + Power(oz,2)) + Power(dx,2)*(Power(oy,2) \
++ Power(oz,2)))*
+        Log(dx*(dx + ox) + dy*(dy + oy) + dz*(dz + oz) + 
+          Sqrt(ld)*Sqrt(Power(dx + ox,2) + Power(dy + oy,2) + Power(dz + \
+oz,2))))/Power(ld,1.5) - 
+     ((Power(dz,2)*(Power(ox,2) + Power(oy,2)) - 2*dx*dz*ox*oz - \
+2*dy*oy*(dx*ox + dz*oz) + 
+          Power(dy,2)*(Power(ox,2) + Power(oz,2)) + Power(dx,2)*(Power(oy,2) \
++ Power(oz,2)))*
+        Log(Sqrt(ld)*Sqrt(Power(ox,2) + Power(oy,2) + Power(oz,2)) + \
+pdo))/Power(ld,1.5))/
+   (2.*(earthRadius - 1.*stratoHeight))\
+\>", "Output",
+ CellChangeTimes->{3.685799009791582*^9, 3.685799111406513*^9}]
+}, Open  ]]
+},
+WindowSize->{1440, 851},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
+2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 3603, 95, 310, "Input"],
+Cell[4163, 117, 1743, 42, 303, "Input"],
+Cell[CellGroupData[{
+Cell[5931, 163, 155, 2, 57, "Input"],
+Cell[6089, 167, 749, 23, 71, "Output"],
+Cell[6841, 192, 4012, 113, 200, "Output"]
+}, Open  ]],
+Cell[10868, 308, 368, 9, 36, "Input"],
+Cell[CellGroupData[{
+Cell[11261, 321, 607, 15, 57, "Input"],
+Cell[11871, 338, 5681, 174, 301, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17589, 517, 660, 16, 48, "Input"],
+Cell[18252, 535, 4401, 136, 355, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22690, 676, 317, 5, 43, "Input"],
+Cell[23010, 683, 968, 20, 290, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

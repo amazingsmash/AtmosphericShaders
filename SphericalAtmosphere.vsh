@@ -1,7 +1,7 @@
 //
 //  Default.vsh
 //
-//  Created by José Miguel Santana Núñez
+//  Created by José Miguel Santana Núñez: amazingsmash@gmail.com, josemiguel.santana@ulpgc.es 
 //
 
 attribute vec4 aPosition; //Position of ZNear Frame corners in world-space

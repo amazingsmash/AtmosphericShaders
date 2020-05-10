@@ -1,11 +1,11 @@
 # AtmosphericShaders
 GLSL shaders for producing an spherical atmosphere-like effect on virtual globes.
 
-Shading is based on atmospheric raycasting using a simplified linear model of the atmospheric density to calculate how much light is scattered our way on each fragment.
+Shading is based on the most prominent atmospheric raycasting using a simplified linear model of the atmospheric density to calculate how much light is scattered our way on each fragment. The numerical calculations are heavily simplified by exploiting the spherical simetry of the atmosphere.
 
 ## Analytical
 
-Contains a series of Mathematica Notebooks which present the Rayleigh Raycacast integrations and derive the final expressions. 
+Contains a series of Mathematica Notebooks which present the Rayleigh Scattering integrations and derive the final expressions. 
 
 ## Simple Model
 
